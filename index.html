@@ -5,24 +5,19 @@
   <title>Yeshwanth Logabiraman | Senior Technical Program & Solutions Leader</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Senior Technical Program and Solutions Leader with 20+ years of experience delivering enterprise-scale programs, SaaS products, and AI/ML-driven innovations." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b1120;
-      --card-bg: #020617;
-      --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.15);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --chip-bg: #111827;
-      --danger: #f97373;
-      --shadow-soft: 0 18px 45px rgba(15,23,42,0.75);
+      --page-bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --border: #d2d2d7;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --accent: #0071e3;
       --radius-lg: 18px;
       --radius-xl: 28px;
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.08);
+      --timeline-line: #d2d2d7;
     }
 
     * {
@@ -32,9 +27,10 @@
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
-      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: var(--page-bg);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
@@ -43,32 +39,38 @@
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     img {
       max-width: 100%;
       display: block;
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 18px 18px 48px;
     }
 
     /* Top bar / nav */
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 12px 0 10px;
+      background: linear-gradient(to bottom, rgba(245,245,247,0.96), rgba(245,245,247,0.92), rgba(245,245,247,0.7));
+      backdrop-filter: blur(20px);
+    }
+
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 14px;
-      margin-bottom: 18px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to right, rgba(2,6,23,0.92), rgba(15,23,42,0.92));
-      border-radius: 999px;
-      border: 1px solid rgba(55,65,81,0.6);
-      box-shadow: 0 22px 60px rgba(15,23,42,0.8);
+      padding: 9px 18px;
+      margin: 0 -18px;
+      border-bottom: 1px solid rgba(210,210,215,0.8);
     }
 
     .nav-left {
@@ -78,67 +80,60 @@
     }
 
     .nav-initials {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      background: radial-gradient(circle at 20% 0, #4f46e5, #22d3ee);
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 15px;
-      color: #f9fafb;
-      box-shadow: 0 8px 20px rgba(37,99,235,0.7);
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
     }
 
     .nav-name {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: #e5e7eb;
     }
 
     .nav-title {
       font-size: 12px;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
       gap: 18px;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
     .nav-links a {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: all 0.18s ease;
+      padding: 4px 0;
+      position: relative;
       white-space: nowrap;
     }
 
-    .nav-links a:hover {
-      border-color: rgba(148,163,184,0.5);
-      color: #f9fafb;
-      background: rgba(15,23,42,0.9);
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.18s ease;
     }
 
-    /* Layout */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
-      gap: 26px;
-      margin-top: 26px;
-      margin-bottom: 32px;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    @media (max-width: 840px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media (max-width: 820px) {
       .nav {
         flex-wrap: wrap;
-        row-gap: 8px;
+        row-gap: 6px;
       }
       .nav-links {
         width: 100%;
@@ -147,18 +142,67 @@
       }
     }
 
+    /* Layout */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 840px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     /* Hero */
     .hero-card {
       border-radius: var(--radius-xl);
-      padding: 26px 26px 22px;
-      border: 1px solid rgba(55,65,81,0.8);
-      background:
-        radial-gradient(circle at top left, rgba(129,140,248,0.2), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(14,165,233,0.12), transparent 60%),
-        linear-gradient(to bottom right, #020617, #020617);
+      padding: 22px 22px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
-      position: relative;
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    .hero-headshot {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
       overflow: hidden;
+      border: 1px solid #d2d2d7;
+      background: #f5f5f7;
+      flex-shrink: 0;
+    }
+
+    .hero-name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-name {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-role {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-location {
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
     .hero-tagline {
@@ -167,56 +211,54 @@
       gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.85);
+      border: 1px solid var(--border);
+      background: #f5f5f7;
       font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
 
     .hero-tag-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
+      background: #34c759;
     }
 
     .hero-title {
-      font-size: clamp(26px, 3vw, 32px);
-      font-weight: 700;
-      margin: 0 0 6px;
-      letter-spacing: 0.02em;
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0 0 8px;
     }
 
     .hero-subtitle {
       font-size: 14px;
-      color: var(--muted);
+      color: var(--text-muted);
       max-width: 520px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid rgba(75,85,99,0.9);
+      background: #f5f5f7;
+      border: 1px solid var(--border);
       font-size: 11px;
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .btn {
@@ -226,33 +268,36 @@
       gap: 6px;
       font-size: 13px;
       font-weight: 500;
-      padding: 9px 15px;
+      padding: 9px 14px;
       border-radius: 999px;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border 0.16s ease;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease, border 0.14s ease;
+      text-decoration: none;
     }
 
     .btn-primary {
-      background: linear-gradient(to right, #4f46e5, #22c55e);
-      color: #f9fafb;
-      box-shadow: 0 16px 35px rgba(59,130,246,0.7);
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 8px 18px rgba(0,113,227,0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 20px 45px rgba(59,130,246,0.8);
+      box-shadow: 0 10px 22px rgba(0,113,227,0.45);
+      text-decoration: none;
     }
 
     .btn-ghost {
-      background: rgba(15,23,42,0.9);
-      border-color: rgba(148,163,184,0.7);
-      color: #e5e7eb;
+      background: #f5f5f7;
+      border-color: var(--border);
+      color: var(--text-main);
     }
 
     .btn-ghost:hover {
-      background: rgba(30,64,175,0.6);
-      border-color: rgba(191,219,254,0.9);
+      background: #e5e5ea;
+      text-decoration: none;
     }
 
     .btn-icon {
@@ -262,56 +307,38 @@
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 12px;
+      gap: 12px;
+      margin-top: 6px;
       font-size: 12px;
-      color: var(--muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(148,163,184,0.9);
     }
 
     .hero-stat {
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(75,85,99,0.85);
-      background: rgba(15,23,42,0.9);
+      border: 1px solid var(--border);
+      background: #f9f9fb;
       display: inline-flex;
       flex-direction: column;
-      gap: 4px;
-      min-width: 120px;
+      gap: 2px;
+      min-width: 130px;
     }
 
     .hero-stat-value {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      color: #e5e7eb;
     }
 
     .hero-stat-label {
       font-size: 11px;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
     /* Side card */
     .side-card {
       border-radius: var(--radius-xl);
-      padding: 20px 20px 18px;
-      border: 1px solid rgba(55,65,81,0.9);
-      background:
-        radial-gradient(circle at top, rgba(129,140,248,0.28), transparent 60%),
-        radial-gradient(circle at bottom, rgba(8,47,73,0.6), transparent 70%),
-        linear-gradient(to bottom right, #020617, #020617);
+      padding: 18px 18px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
@@ -321,17 +348,13 @@
     .side-label {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(148,163,184,0.9);
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
     }
 
     .side-highlight {
       font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .side-highlight strong {
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .side-columns {
@@ -341,20 +364,26 @@
       margin-top: 4px;
     }
 
+    @media (max-width: 720px) {
+      .side-columns {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
     .side-column-block {
       padding: 10px 11px;
       border-radius: 16px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(71,85,105,0.9);
-      font-size: 11px;
-      color: var(--muted);
+      background: #f9f9fb;
+      border: 1px solid #e4e4ea;
+      font-size: 11.5px;
+      color: var(--text-muted);
     }
 
     .side-column-block strong {
       display: block;
       font-size: 12px;
       margin-bottom: 4px;
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .contact-block {
@@ -362,11 +391,16 @@
       flex-direction: column;
       gap: 4px;
       margin-top: 6px;
-      font-size: 12px;
+      font-size: 12.5px;
     }
 
     .contact-block a {
-      color: #bfdbfe;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
     }
 
     .badge-row {
@@ -379,10 +413,11 @@
     .badge {
       padding: 3px 8px;
       border-radius: 999px;
-      font-size: 10px;
-      border: 1px solid rgba(148,163,184,0.7);
-      background: rgba(15,23,42,0.9);
-      color: var(--muted);
+      font-size: 10.5px;
+      border: 1px solid #e4e4ea;
+      background: #f5f5f7;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
 
     /* Sections */
@@ -395,76 +430,26 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .section-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(156,163,175,0.95);
+      color: var(--text-muted);
     }
 
     .section-subtitle {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
     .section-grid {
       display: grid;
-      gap: 16px;
-    }
-
-    /* Experience cards */
-    .experience-card {
-      border-radius: var(--radius-lg);
-      padding: 16px 16px 14px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, rgba(37,99,235,0.08), transparent 65%), #020617;
-    }
-
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-
-    .experience-role {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .experience-meta {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .experience-company {
-      font-weight: 500;
-      color: #e5e7eb;
-    }
-
-    .experience-location {
-      color: var(--muted);
-    }
-
-    .experience-dates {
-      font-size: 12px;
-      color: rgba(148,163,184,0.9);
-    }
-
-    .experience-list {
-      margin: 8px 0 0;
-      padding-left: 18px;
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .experience-list li {
-      margin-bottom: 6px;
+      gap: 12px;
+      font-size: 14px;
     }
 
     /* Chips list */
@@ -476,33 +461,32 @@
     }
 
     .chip {
-      background: var(--chip-bg);
+      background: #f5f5f7;
       border-radius: 999px;
       padding: 6px 9px;
-      border: 1px solid rgba(75,85,99,0.9);
+      border: 1px solid var(--border);
     }
 
     /* Highlights */
     .highlight-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
+      gap: 12px;
     }
 
     .highlight-card {
       border-radius: var(--radius-lg);
       padding: 12px 13px;
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(45,212,191,0.08), transparent 60%), #020617;
       font-size: 13px;
-      color: #e5e7eb;
     }
 
     .highlight-label {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(148,163,184,0.95);
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
       margin-bottom: 2px;
     }
 
@@ -510,8 +494,8 @@
     .contact-card {
       border-radius: var(--radius-lg);
       padding: 18px 16px;
-      border: 1px solid rgba(75,85,99,0.9);
-      background: radial-gradient(circle at top right, rgba(79,70,229,0.24), transparent 60%), #020617;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       display: grid;
       grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
       gap: 12px;
@@ -525,12 +509,12 @@
     }
 
     .contact-main {
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 13.5px;
+      color: var(--text-muted);
     }
 
     .contact-main strong {
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .contact-channels {
@@ -541,15 +525,81 @@
     }
 
     .contact-channels a {
-      color: #bfdbfe;
+      color: var(--accent);
+      text-decoration: none;
     }
 
+    .contact-channels a:hover {
+      text-decoration: underline;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 1.5px;
+      background: var(--timeline-line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1.5px solid var(--timeline-line);
+      box-shadow: 0 0 0 3px #f5f5f7;
+    }
+
+    .timeline-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 10px 11px;
+      font-size: 13px;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 13.5px;
+      margin-bottom: 2px;
+    }
+
+    .timeline-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .timeline-dates {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
     footer {
-      margin-top: 24px;
-      border-top: 1px solid rgba(31,41,55,0.9);
-      padding-top: 12px;
-      font-size: 11px;
-      color: rgba(107,114,128,0.9);
+      margin-top: 22px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      font-size: 11.5px;
+      color: var(--text-muted);
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -565,46 +615,61 @@
     .dot-sep::before {
       content: "•";
       margin: 0 4px;
-      color: rgba(75,85,99,0.9);
+      color: var(--text-muted);
     }
 
     /* Anchor offset for sticky nav */
     .anchor-offset {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 80px;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Top Nav -->
-    <header class="nav">
-      <div class="nav-left">
-        <div class="nav-initials">YL</div>
-        <div>
-          <div class="nav-name">Yeshwanth Logabiraman</div>
-          <div class="nav-title">Senior Technical Program &amp; Solutions Leader</div>
+  <div class="nav-shell">
+    <div class="page">
+      <header class="nav">
+        <div class="nav-left">
+          <div class="nav-initials">YL</div>
+          <div>
+            <div class="nav-name">Yeshwanth Logabiraman</div>
+            <div class="nav-title">Senior Technical Program &amp; Solutions Leader</div>
+          </div>
         </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#highlights">Impact</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#highlights">Impact</a>
+          <a href="#skills">Skills</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+    </div>
+  </div>
 
+  <div class="page">
     <!-- Hero -->
     <main>
       <section class="hero-grid">
         <article class="hero-card">
+          <div class="hero-header">
+            <div class="hero-headshot">
+              <!-- Replace "headshot.jpg" with your actual file name if different -->
+              <img src="headshot.jpg" alt="Portrait of Yeshwanth Logabiraman" />
+            </div>
+            <div class="hero-name-block">
+              <div class="hero-name">Yeshwanth Logabiraman</div>
+              <div class="hero-role">Senior Technical Program &amp; Solutions Leader</div>
+              <div class="hero-location">Alabama, USA</div>
+            </div>
+          </div>
+
           <div class="hero-tagline">
             <span class="hero-tag-dot"></span>
             20+ years | Enterprise Programs • SaaS Products • AI/ML Enablement
           </div>
-          <h1 class="hero-title">Senior Technical Program &amp; Solutions Leader</h1>
+          <h1 class="hero-title">Building and scaling enterprise programs &amp; cloud products.</h1>
           <p class="hero-subtitle">
-            I build and scale cloud-native products and enterprise transformation programs that
+            I design and deliver cloud-native products and enterprise transformation programs that
             tie directly to revenue, KPIs, and P&amp;L — from AI-led SaaS platforms to complex
             multi-vendor portfolios across the US, Middle East, Far East, and India.
           </p>
@@ -618,7 +683,7 @@
           </div>
 
           <div class="hero-actions">
-            <!-- TODO: Replace # with the actual URL to your resume PDF or LinkedIn -->
+            <!-- TODO: Replace # with the actual URL to your resume PDF or hosted file -->
             <a class="btn btn-primary" href="#" target="_blank" rel="noopener">
               <span class="btn-icon">⬇</span> Download Resume
             </a>
@@ -638,12 +703,12 @@
             </div>
             <div class="hero-stat">
               <div class="hero-stat-value">10% TAT gain</div>
-              <div class="hero-stat-label">through AI-driven support automation</div>
+              <div class="hero-stat-label">AI-driven support automation</div>
             </div>
           </div>
         </article>
 
-        <!-- Summary / Contact Snapshot -->
+        <!-- Summary / Snapshot -->
         <aside class="side-card">
           <div class="side-label">Overview</div>
           <p class="side-highlight">
@@ -659,14 +724,13 @@
             </div>
             <div class="side-column-block">
               <strong>Leadership Style</strong>
-              Hands-on with architecture and delivery, while building repeatable playbooks, scalable teams,
+              Hands-on with architecture and delivery while building repeatable playbooks, scalable teams,
               and metrics-driven PMO practices.
             </div>
           </div>
 
           <div class="contact-block">
             <div><strong>Location:</strong> Alabama, USA</div>
-            <div><strong>Phone:</strong> <a href="tel:+15086545330">+1 (508) 654-5330</a></div>
             <div><strong>Email:</strong> <a href="mailto:yeshlogabiraman@gmail.com">yeshlogabiraman@gmail.com</a></div>
             <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yesh-logabiraman" target="_blank" rel="noopener">linkedin.com/in/yesh-logabiraman</a></div>
           </div>
@@ -701,173 +765,48 @@
         </div>
       </section>
 
-      <!-- Experience -->
-      <section id="experience" class="section anchor-offset">
+      <!-- Value Highlights FIRST -->
+      <section id="highlights" class="section anchor-offset">
         <div class="section-header">
-          <h2 class="section-title">Experience</h2>
-          <p class="section-subtitle">Selected roles and impact</p>
+          <h2 class="section-title">Impact Highlights</h2>
+          <p class="section-subtitle">Selected outcomes &amp; metrics</p>
         </div>
 
-        <div class="section-grid">
-          <!-- Senior Director -->
-          <article class="experience-card">
-            <header class="experience-header">
-              <div>
-                <div class="experience-role">Senior Director – Strategic Solutions &amp; Delivery</div>
-                <div class="experience-meta">
-                  <span class="experience-company">Bahwan CyberTek</span>
-                  <span class="dot-sep experience-location">Alabama, USA</span>
-                </div>
-              </div>
-              <div class="experience-dates">Dec 2016 – Oct 2025</div>
-            </header>
-            <ul class="experience-list">
-              <li>
-                Built, scaled, and led global delivery teams to drive enterprise transformation, optimize costs, and
-                accelerate delivery across portfolios for strategic large clients.
-              </li>
-              <li>
-                Owned end-to-end solution architecture &amp; delivery across engineering, product, data science, and
-                global support; governed via KPIs, SLAs, budgets, and PMO standards.
-              </li>
-              <li>
-                Drove product GTM strategy, roadmap evolution, and feature planning for key digital products, partnering
-                with product leadership on value definition, release sequencing, and adoption.
-              </li>
-              <li>
-                Defined and executed AI strategy for the product portfolio — from use case selection and data pipelines
-                to model integration, UX considerations, and iterative rollout for value at scale.
-              </li>
-              <li>
-                Spearheaded AI enablement across product &amp; delivery portfolios, embedding automation, personalization,
-                and predictive intelligence; accelerated time-to-market by ~20%.
-              </li>
-              <li>
-                Implemented AI-driven support automation, improving response SLAs and cutting turnaround time by ~10%;
-                established metric reviews and escalation playbooks to sustain gains.
-              </li>
-              <li>
-                Led large bids and pre-sales / solutioning teams, securing multi-million dollar wins through solution
-                strategy, cost modeling, and delivery models.
-              </li>
-              <li>
-                Managed a $10M+ CAPEX program portfolio for a home utility insurance client, including M&amp;A migrations
-                and large-scale enterprise initiatives, coordinating across multiple vendors and partners.
-              </li>
-              <li>
-                Led PMO for a 200+ member digital portfolio practice, overseeing intake, prioritization, capacity planning,
-                and roadmap management across cross-functional stakeholders.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Product Manager -->
-          <article class="experience-card">
-            <header class="experience-header">
-              <div>
-                <div class="experience-role">Product Manager</div>
-                <div class="experience-meta">
-                  <span class="experience-company">Bahwan CyberTek</span>
-                  <span class="dot-sep experience-location">Chennai, India</span>
-                </div>
-              </div>
-              <div class="experience-dates">Sep 2013 – Dec 2016</div>
-            </header>
-            <ul class="experience-list">
-              <li>
-                Built two SaaS products (<strong>dtWorks &amp; CueTrans</strong>) from concept to $2M+ annual
-                revenue within 2 years; grew and led a 40+ person cross-functional team across BA, architecture,
-                engineering, and DevOps.
-              </li>
-              <li>
-                Defined product roadmap for Order-to-Cash, fulfillment orchestration, and operational workflow automation
-                with integration to Oracle Apps and Microsoft Dynamics.
-              </li>
-              <li>
-                Leveraged IoT telemetry from vehicle &amp; device sensors to drive predictive job assignment, routing
-                efficiency, uptime improvement, and SLA-based decision automation.
-              </li>
-              <li>
-                Established AWS partnership and cloud hosting; designed end-to-end architecture using BPM and service-based
-                patterns; delivered mobile-ready experiences on Android/iOS.
-              </li>
-              <li>
-                Owned roadmap, portfolio budget, and P&amp;L; drove demos/POCs, partner channels, and bid management;
-                delivered GTM kits and competitive analysis.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Project Manager -->
-          <article class="experience-card">
-            <header class="experience-header">
-              <div>
-                <div class="experience-role">Project Manager</div>
-                <div class="experience-meta">
-                  <span class="experience-company">Bahwan CyberTek</span>
-                  <span class="dot-sep experience-location">Chennai, India</span>
-                </div>
-              </div>
-              <div class="experience-dates">Apr 2011 – Sep 2013</div>
-            </header>
-            <ul class="experience-list">
-              <li>
-                Delivered projects for customers across the USA, Middle East, Far East, and India, aligning scope,
-                milestones, and vendor teams to client objectives for web, middleware, and SQL technologies.
-              </li>
-              <li>
-                Awarded the <strong>Quality Beacon Award</strong> for contributions toward CMMI Level 5 v1.3
-                certification.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Project Lead -->
-          <article class="experience-card">
-            <header class="experience-header">
-              <div>
-                <div class="experience-role">Project Lead</div>
-                <div class="experience-meta">
-                  <span class="experience-company">Tech Mahindra</span>
-                  <span class="dot-sep experience-location">Omaha, NE &amp; Chennai, India</span>
-                </div>
-              </div>
-              <div class="experience-dates">Dec 2003 – Mar 2011</div>
-            </header>
-            <ul class="experience-list">
-              <li>
-                Led enterprise application development with onsite and offshore teams for Union Pacific Railroad and The
-                World Bank.
-              </li>
-              <li>
-                Recognized by Union Pacific and Tech Mahindra leadership with “Pat on the Back” awards for managing
-                complex customer relationships and delivering a bug-free module for World Bank.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Developer -->
-          <article class="experience-card">
-            <header class="experience-header">
-              <div>
-                <div class="experience-role">Developer</div>
-                <div class="experience-meta">
-                  <span class="experience-company">eLogistics Pvt Ltd</span>
-                </div>
-              </div>
-              <div class="experience-dates">Jan 2003 – Dec 2003</div>
-            </header>
-            <ul class="experience-list">
-              <li>
-                Built logistics-focused applications, laying the foundation for later enterprise and product engineering
-                work.
-              </li>
-            </ul>
-          </article>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <div class="highlight-label">SaaS growth</div>
+            Launched two cloud-native SaaS products from concept to scale, generating
+            <strong>$2M+ annual revenue</strong> within 2 years and expanding distribution globally.
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-label">AI strategy &amp; enablement</div>
+            Architected and embedded AI strategy and AI-enabled features across platforms; implemented AI-driven support
+            automation to achieve <strong>~20% faster time-to-market</strong> and <strong>~10% support TAT improvement</strong>.
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-label">Portfolio leadership</div>
+            Directed a <strong>$10M+ annual CAPEX portfolio</strong> for a home-insurance client, aligning multi-vendor
+            programs to PMO priorities and executive KPIs.
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-label">Scaled teams</div>
+            Scaled delivery &amp; architecture teams <strong>6× in 3 months</strong>, instituting hiring plans, budget
+            controls, and rituals to sustain throughput and quality.
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-label">PMO &amp; governance</div>
+            Led PMO functions by managing intake, prioritization, and roadmaps to ensure strategic alignment and
+            consistent, on-budget, SLA-compliant delivery across complex global programs.
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-label">Sales &amp; pursuits</div>
+            Led large bids and pursuits with Sales and Solutions, contributing to
+            <strong>multi-million-dollar wins</strong> via right-sized solutions, delivery models, and cost structures.
+          </div>
         </div>
       </section>
 
-      <!-- Skills & Certifications -->
+      <!-- Skills & Certifications SECOND -->
       <section id="skills" class="section anchor-offset">
         <div class="section-header">
           <h2 class="section-title">Skills &amp; Certifications</h2>
@@ -917,43 +856,57 @@
         </div>
       </section>
 
-      <!-- Value Highlights -->
-      <section id="highlights" class="section anchor-offset">
+      <!-- Timeline THIRD (experience as clean timeline, no responsibilities) -->
+      <section id="timeline" class="section anchor-offset">
         <div class="section-header">
-          <h2 class="section-title">Impact Highlights</h2>
-          <p class="section-subtitle">Selected outcomes &amp; metrics</p>
+          <h2 class="section-title">Experience Timeline</h2>
+          <p class="section-subtitle">Career progression across products, programs &amp; delivery</p>
         </div>
 
-        <div class="highlight-grid">
-          <div class="highlight-card">
-            <div class="highlight-label">SaaS growth</div>
-            Launched two cloud-native SaaS products from concept to scale, generating <strong>$2M+ annual revenue</strong>
-            within 2 years and expanding distribution globally.
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-role">Senior Director – Strategic Solutions &amp; Delivery</div>
+              <div class="timeline-meta">Bahwan CyberTek · Alabama, USA</div>
+              <div class="timeline-dates">Dec 2016 – Oct 2025</div>
+            </div>
           </div>
-          <div class="highlight-card">
-            <div class="highlight-label">AI strategy &amp; enablement</div>
-            Architected and embedded AI strategy and AI-enabled features across platforms; implemented AI-driven support
-            automation to achieve <strong>~20% faster time-to-market</strong> and <strong>~10% support TAT improvement</strong>.
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-role">Product Manager</div>
+              <div class="timeline-meta">Bahwan CyberTek · Chennai, India</div>
+              <div class="timeline-dates">Sep 2013 – Dec 2016</div>
+            </div>
           </div>
-          <div class="highlight-card">
-            <div class="highlight-label">Portfolio leadership</div>
-            Directed a <strong>$10M+ annual CAPEX portfolio</strong> for a home-insurance client, aligning multi-vendor
-            programs to PMO priorities and executive KPIs.
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-role">Project Manager</div>
+              <div class="timeline-meta">Bahwan CyberTek · Chennai, India</div>
+              <div class="timeline-dates">Apr 2011 – Sep 2013</div>
+            </div>
           </div>
-          <div class="highlight-card">
-            <div class="highlight-label">Scaled teams</div>
-            Scaled delivery &amp; architecture teams <strong>6× in 3 months</strong>, instituting hiring plans, budget
-            controls, and rituals to sustain throughput and quality.
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-role">Project Lead</div>
+              <div class="timeline-meta">Tech Mahindra · Omaha, NE &amp; Chennai, India</div>
+              <div class="timeline-dates">Dec 2003 – Mar 2011</div>
+            </div>
           </div>
-          <div class="highlight-card">
-            <div class="highlight-label">PMO &amp; governance</div>
-            Led PMO functions by managing intake, prioritization, and roadmaps to ensure strategic alignment and
-            consistent, on-budget, SLA-compliant delivery across complex global programs.
-          </div>
-          <div class="highlight-card">
-            <div class="highlight-label">Sales &amp; pursuits</div>
-            Led large bids and pursuits with Sales and Solutions, contributing to <strong>multi-million-dollar wins</strong>
-            via right-sized solutions, delivery models, and cost structures.
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-role">Developer</div>
+              <div class="timeline-meta">eLogistics Pvt Ltd · India</div>
+              <div class="timeline-dates">Jan 2003 – Dec 2003</div>
+            </div>
           </div>
         </div>
       </section>
@@ -972,13 +925,11 @@
               where AI, cloud, and complex multi-vendor portfolios converge.
             </p>
             <p style="margin:0;">
-              If you’d like to discuss an opportunity or collaboration, feel free to reach out via email, phone,
-              or LinkedIn.
+              If you’d like to discuss an opportunity or collaboration, feel free to reach out via email or LinkedIn.
             </p>
           </div>
           <div class="contact-channels">
             <div><strong>Email:</strong> <a href="mailto:yeshlogabiraman@gmail.com">yeshlogabiraman@gmail.com</a></div>
-            <div><strong>Phone:</strong> <a href="tel:+15086545330">+1 (508) 654-5330</a></div>
             <div>
               <strong>LinkedIn:</strong>
               <a href="https://linkedin.com/in/yesh-logabiraman" target="_blank" rel="noopener">
@@ -992,7 +943,7 @@
 
     <footer>
       <span>© <span id="year"></span> Yeshwanth Logabiraman</span>
-      <span>Built as a clean, single-page profile for web &amp; mobile.</span>
+      <span>Single-page professional profile for web &amp; mobile.</span>
     </footer>
   </div>
 
